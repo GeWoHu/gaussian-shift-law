@@ -1,0 +1,5 @@
+DETECTED: corrupt_base (AssertionError, exit 1)
+DETECTED: corrupt_shift (AssertionError, exit 1)
+DETECTED: corrupt_signflip (AssertionError, exit 1)
+DETECTED: corrupt_threshold (AssertionError, exit 1)
+CORRUPTION SUITE: PASS (all mutants detected)

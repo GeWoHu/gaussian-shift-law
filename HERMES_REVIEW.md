@@ -1,5 +1,8 @@
 # HERMES REVIEW — external review of the v1.0.0 preprint
-**Received:** 2026-11-13 (forwarded by the owner; reviewer: "Hermes")
+**Received:** 2026-11-13 (forwarded by the owner; reviewer: "Hermes").
+**Abridgment note:** the reviewer's full report carried per-file/line references and repair priorities;
+the text preserved below is the summary as delivered in the owner channel. Sections 1-5 are
+condensed quotations/paraphrases of that delivery, not the complete report.
 **Verdict:** Major revision — mathematics survives verification; headline novelty and "open mechanism" claims do not.
 
 ## 1. The shift is already explained

@@ -12,7 +12,8 @@ def box(N,k,cap=None):
   a=z
  return a
 def g(l):
- a=box(l+6,6,3*l); return a[3*l]-a[3*l-1]
+ a=box(l+6,6,3*l)
+ return a[3*l]-(a[3*l-1] if 3*l-1>=0 else 0)  # zero extension outside range
 def unimodal(a):
  down=False
  for x,y in zip(a,a[1:]):
@@ -50,6 +51,7 @@ def main():
   bad=[l for l in range(start,122) if core(b,l)!=(g(l)>=D)]
   print('CORE',b,'PASS' if not bad else bad,'exceptions',[l for l in range(start,40) if l%2 and g(l)<D])
   assert not bad, ('CORE mismatch',b,bad)
+ assert g(0)==1, ('degenerate convention g6(0):=1 violated',g(0))
  print('G6',[(l,g(l)) for l in [0,4,6,10,13,15,17,19,21,23,25]])
  for l in (17,19,21,23,25): assert g(l)==g(l-15)
  for l,j,expected,deg in [(46,66,(165876,165790),132),(48,70,(215262,215251),142)]:

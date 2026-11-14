@@ -63,3 +63,11 @@ syntax errors, unchanged mutants); `counterexample_6_24.py` asserts its premise
 `verification/out/RUNALL_11.out`, `verification/out/CORRUPT_11.out`,
 `verification_independent/INDEPENDENT_CHECK_11.out`,
 `verification_independent/TAIL_RECERT_11.out`.
+
+## v1.1.1 (2026-11-13) — helper contracts and packaging
+New: `verification_independent/helper_contracts.py` regression-tests the PRODUCTION
+helpers (`tail_recert.minint` contract incl. rejection of `3-t`; `verify_central.nonneg`
+extracted verbatim). `tail_recert.py` now asserts on rejected (unbounded-below)
+obligations; `independent_check.py` zero-extends outside the coefficient range so
+g6(0)=1 per the paper convention (asserted). v1.1.1 receipts: RUNALL_111.out,
+CORRUPT_111.out, INDEPENDENT_CHECK_111.out, TAIL_RECERT_111.out, HELPER_CONTRACTS_11.out.

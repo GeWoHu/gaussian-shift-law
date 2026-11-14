@@ -1,5 +1,19 @@
 # A representation-theoretic attempt at the constant 15
 
+> **Status note (2026-11-13, v1.1.1).** This note is a **superseded historical attempt**,
+> kept as the record of a failed line of argument. The established explanation of the
+> constant 15 is classical invariant theory: the invariant ring of binary sextics is
+> generated in degrees 2, 4, 6, 10 with one odd generator \(E\) of degree 15, and
+> multiplication by \(E\) is the transport (see manuscript \S9; Grace--Young 1903, and
+> KKM arXiv:2510.14124 Appendix A.2). Two caveats apply when reading below.
+> First, \(\operatorname{Sym}(M)\otimes\bigwedge N_l\) carries the **alternating virtual
+> character** \(\prod(1-q^{d})\) (an Euler-characteristic-style signed count), **not** the
+> ordinary exterior-algebra Hilbert series \(\prod(1+q^{d})\); equality of signed coefficients
+> at two weights does **not** by itself produce an isomorphism of honest weight spaces or a
+> positive bijection. Second, the "required weight-space lemma" below is exactly the gap
+> where that promotion would have to happen, and it is unproved — consistent with the note's
+> own conclusion that this is an honest failure, not a new proof.
+
 ## Question and outcome
 
 For

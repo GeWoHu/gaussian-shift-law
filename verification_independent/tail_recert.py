@@ -20,6 +20,17 @@ def branch(b,r,j):
  p=S.interpolate(vals[:6],T).expand(); assert S.expand(p-S.interpolate(vals,T))==0
  return p
 def minint(p):
+ """Contract: p(t) integer polynomial, tail domain integers t>=2.
+ Return (min_value, argmin) over t>=2 when the minimum exists; return None
+ when p is nonconstant with negative leading coefficient (unbounded below,
+ e.g. 3-t). Zero polynomial -> (0,2). Supported degree <= 5.
+ Exact arithmetic throughout; irrational critical points are bracketed by
+ sympy intervals and floored/ceiled into the candidate set."""
+ p=S.Poly(p,T); deg=p.degree()
+ if deg<0: return (S.Integer(0),2)
+ if deg==0: return (p.LC(),2)
+ if p.LC()<0: return None  # unbounded below on t>=2 (rejects 3-t, -t^3, ...)
+ assert deg<=5, 'minint: unsupported degree %d' % deg
  d=S.Poly(S.diff(p,T),T); cand={2}
  if not d.is_zero:
   for (lo,hi),_mult in d.intervals(eps=S.Rational(1,10**12)):
@@ -33,7 +44,9 @@ def main():
   for r in range(60):
    base=branch(b,r,h-1)
    for j in range(-1,h-1):
-    c=S.expand(branch(b,r,j)-base); md=max(md,S.degree(c,T)); v,z=minint(c)
+    c=S.expand(branch(b,r,j)-base); md=max(md,S.degree(c,T)); got=minint(c)
+    assert got is not None, ('unbounded-below obligation escaped contract',b,r,j,c)
+    v,z=got
     if v<0: raise AssertionError((b,r,j,c,v,z))
     total+=1; worst=(v,b,r,j,z) if worst is None or v<worst[0] else worst
  print('TAIL_RECERT PASS',total,'certificates max_degree',md,'minimum',worst)

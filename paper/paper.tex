@@ -2,6 +2,7 @@
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage[margin=1.1in]{geometry}
 \usepackage{booktabs}
+\emergencystretch=3em
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -13,7 +14,7 @@
 \newtheorem{remark}[theorem]{Remark}
 \newcommand{\ggbrack}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}_q}
 \title{\bf A shift law for central gaps of Gaussian binomial coefficients,\\ with sharp unimodality thresholds for a two-rectangle subtraction family}
-\author{Gerald W.\ Hu \and (prepared with AI assistance; submitted for human review)}
+\author{Gerald W.\ Hu}
 \date{November 13, 2026}
 \begin{document}
 \maketitle
@@ -26,7 +27,7 @@ g_6(l)=g_6(l-15)\qquad\text{for every odd } l\ge 17,
 so the anomalously small odd-parity central gaps are exactly the even-parity gaps transported by the constant shift $15=\binom{6}{2}$. The proof is a complete symbolic argument: an inclusion--exclusion identity expresses $g_6(l)$, for $l\ge 12$, as an explicit integer combination of the $\{2,3,4,5,6\}$-denumerant $Q_6$; $Q_6$ is certified to be a quasipolynomial of period $60$ valid for all $n\ge0$; and the Shift Law then reduces to $30$ explicit polynomial identities between residue-class branch polynomials, each verified exactly. Combining the Shift Law with a certified central-dominance equivalence, we obtain exact sharp unimodality classifications for the subtraction family $F^{(6,b)}_l(q)=\ggbrack{l+6}{6}-q^{3l-b^2/8}\ggbrack{b}{b/2}$ at $b\in\{8,12,16\}$: $F^{(6,b)}_l$ is unimodal if and only if $g_6(l)\ge\Delta_b$ (with $\Delta_8=1$, $\Delta_{12}=3$, $\Delta_{16}=7$), and the exceptional sets are exactly $\{3,5,7,9,11,13\}$, $\{7,9,\dots,19\}$, and $\{11,13,\dots,25\}$ (odd $l$), with sharp thresholds $l_0=14,20,26$. The equivalence is false in general: we exhibit the certified counterexample $(k,b,l)=(6,24,46)$, where the central inequality passes with equality and an interior adjacent difference fails. The constant $15$ is the degree of the odd generator of the classical invariant ring of binary sextics, whose Hilbert series makes the shift immediate; what remains open is a partition-level bijective explanation, and we document precisely why the standard staircase, complementation, and rim-hook transports do not supply one. All infinite computer-assisted content is reduced to explicit finite certificates in exact integer arithmetic; the accompanying scripts reproduce every decisive identity, and deliberate certificate corruption is detected.
 \end{abstract}
 
-\section{Introduction}
+\section{Introduction}\label{sec:intro}
 The Gaussian polynomial (or $q$-binomial coefficient) $\ggbrack{n}{k}$ enumerates partitions fitting in a $k\times(n-k)$ rectangle. Its unimodality, proved by Sylvester in 1878 \cite{sylvester}, remains a central object of enumerative combinatorics; see \cite{stanley} for the standard reference and \cite{ohara} for a constructive proof.
 
 Two lines of recent work motivate this paper. First, Stanley and Zanello \cite{SZ} conjectured unimodality (with nonnegativity) for differences
@@ -65,7 +66,7 @@ The proof technique is quasipolynomial: the coefficients of $\ggbrack{l+6}{6}$ a
 Following the epistemology of \cite{KUW}, we label in \S\ref{sec:status} exactly which statements are hand proofs, which are machine-verified certificates over explicit finite data, and which are numerically supported but unproved. No numerical observation is promoted to a theorem anywhere in this paper.
 
 \subsection*{Relation to prior work}
-The quasipolynomial method with a positivity certificate is standard technology \cite{KUW,KKM}; the reduction of unimodality of $F^{(k,b)}_l$ to finitely many fixed adjacent-offset inequalities is implicit in \cite{RS} and explicit in the companion papers \cite{M06,M07}. The Shift Law is equivalent to the classical Hilbert series of the invariant ring of binary sextics and follows from Appendix A.2 of \cite{KKM} (identified in external review, 2026-11-13; \S\ref{sec:related}); our residue-class enumeration gives a self-contained elementary proof of the same identity. The contributions of this paper are the central-gap equivalence over an explicit certified domain, the exact exceptional-set classifications with sharp thresholds, and the certified failure at $(6,24)$; we make no stronger novelty claim for these than ``not found in the sources cited.'' A partition-level explanation of the constant $15$ is open (\S\ref{sec:why15}).
+The quasipolynomial method with a positivity certificate is standard technology \cite{KUW,KKM}; the reduction of unimodality of $F^{(k,b)}_l$ to finitely many fixed adjacent-offset inequalities is implicit in \cite{RS} and explicit in the companion papers \cite{M06,M07}. The Shift Law is a consequence of the classical Hilbert series of the invariant ring of binary sextics and follows from Appendix A.2 of \cite{KKM} (identified in external review, 2026-11-13; \S\ref{sec:related}); our residue-class enumeration gives a self-contained elementary proof of the same identity. The contributions of this paper are the central-gap equivalence over an explicit certified domain, the exact exceptional-set classifications with sharp thresholds, and the certified failure at $(6,24)$; we make no stronger novelty claim for these than ``not found in the sources cited.'' A partition-level explanation of the constant $15$ is open (\S\ref{sec:why15}).
 
 \section{Setup, definitions, and statements}\label{sec:setup}
 Throughout, $l,k,b$ are integers. For $n\ge k\ge 0$,
@@ -226,7 +227,7 @@ From $\ggbrack{l+6}{6}=\prod_{i=1}^6(1-q^{l+i})\big/\prod_{i=1}^6(1-q^i)$, expan
 a_l(n)=\sum_{S\subseteq\{1,\dots,6\}}(-1)^{|S|}\,p\bigl(n-|S|\,l-\sigma(S)\bigr),
 \qquad \sigma(S)=\sum_{i\in S}i .
 \]
-Apply this at $n=3l$ and $n=3l-1$ and subtract. For $|S|\ge3$ the arguments are $(3-|S|)l-\sigma(S)$ and $(3-|S|)l-\sigma(S)-1$, both negative (at $|S|=3$ the largest is $-6$ for $l=12$, since $\sigma(S)\ge6$), so all subsets of size $\ge3$ contribute to neither difference. For $|S|=2$ the arguments are $l-i-j$ and $l-i-j-1$; and $|S|=1$ gives $2l-i$, $2l-i-1$; all are $\ge 0$ for $l\ge 12$ except possibly the $-1$ variants of pairs at $l=12$ with $i+j=11$, which contribute $p(-1)-p(-2)=0$ and cancel correctly. Subtracting the two identities and using $Q_6(m)=p(m)-p(m-1)$ (which follows from $(1-q)\prod_{i=1}^6(1-q^i)^{-1}=\prod_{i=2}^6(1-q^i)^{-1}$) yields \eqref{eq:star}.
+Apply this at $n=3l$ and $n=3l-1$ and subtract. For $|S|\ge3$ the arguments are $(3-|S|)l-\sigma(S)$ and $(3-|S|)l-\sigma(S)-1$, both negative (at $|S|=3$ the largest is $-6$ for $l=12$, since $\sigma(S)\ge6$), so all subsets of size $\ge3$ contribute to neither difference. For $|S|=2$ the arguments are $l-i-j$ and $l-i-j-1$; and $|S|=1$ gives $2l-i$, $2l-i-1$; all are $\ge 0$ for $l\ge 12$ (at $l=12$ the extremal pair has $i+j=11$, where the two arguments are $1$ and $0$). Subtracting the two identities and using $Q_6(m)=p(m)-p(m-1)$ (which follows from $(1-q)\prod_{i=1}^6(1-q^i)^{-1}=\prod_{i=2}^6(1-q^i)^{-1}$) yields \eqref{eq:star}.
 \end{proof}
 
 \begin{remark}
@@ -349,10 +350,10 @@ Across the even-$k$ families examined in \cite{M08}, the central gap of $\ggbrac
 
 \subsection{Why naive bijections fail}\label{sec:naive}
 \begin{enumerate}
-\item \textbf{Staircase subtraction.} $\delta=(5,4,3,2,1,0)$ gives an exact weight-shift-by-$15$ bijection from \emph{strict} partitions into $6$ positive parts in the $l\times6$ box to partitions in the $(l-5)\times6$ box; for an arbitrary six-part partition the subtraction $\lambda\mapsto\lambda-\delta$ need not be a partition at all (consecutive parts may repeat), so it does not cover the exact-$6$-row summand. It captures only the exact-$6$-row summand of $a_l(3l)$; partitions with fewer than $6$ parts are unpaired, and no sign-reversing pairing of the boundary layer was found. (Note also $l\mapsto l-5$, not $l-15$: the weight shift is $15$ but the width shift is $5$.)
+\item \textbf{Staircase subtraction.} For $l\ge6$, subtracting $\delta=(5,4,3,2,1,0)$ bijects \emph{strict} partitions with exactly $6$ positive parts and largest part at most $l$ onto partitions into exactly $6$ positive parts with largest part at most $l-5$; the inverse adds $\delta$, positivity and the width bound are preserved on both sides, and the total weight drops by exactly $15$. The construction nevertheless fails for our purpose twice over: an arbitrary (weak) six-part partition is not mapped to a partition at all when consecutive parts repeat, so the exact-$6$-row summand of $a_l(3l)$ is only partially touched (partitions with fewer than $6$ parts are unpaired as well, and no sign-reversing pairing of the boundary layer was found); and the induced width shift is $l\mapsto l-5$, not the desired $l\mapsto l-15$.
 \item \textbf{Complementation} $\lambda\mapsto(6l-|\lambda|)$ fixes the central weight and does not transport the width at all.
 \item \textbf{2-core / rim-hook transports} meet runner boundaries imposed by the box: a $15$-rim hook is not available on every relevant diagram, and the core effect depends on its position.
-\item Any bijective proof must be \emph{directional} (\S\ref{sec:why15}), which rules out any ordinary involution or period-$15$ symmetry argument.
+\item Any bijective proof must be \emph{directional} (\S\ref{sec:why15}): no global period-$15$ symmetry exists (the even-parity comparison fails, e.g.\ $g_6(24)=29\ne0=g_6(9)$), so an argument that averages over a period-$15$ group action cannot apply.
 \end{enumerate}
 
 As observed in external review (2026-11-13), the \emph{representation-theoretic} mechanism is classical: $g_6(l)$ is the dimension of the degree-$l$ component of the invariant ring of binary sextics, which is generated by invariants of degrees $2,4,6,10$ together with one odd generator $E$ of degree $15$ subject to a single quadratic relation $E^2=P(S,T,H,I)$ \cite{GY}; the Hilbert series is
@@ -390,8 +391,8 @@ There is a \emph{manifestly positive combinatorial} explanation of the identity 
 \end{enumerate}
 
 \section{Evidence classes and reproducibility}\label{sec:status}
-\begin{center}\small
-\begin{tabular}{p{0.52\textwidth}ll}
+\begin{center}\footnotesize
+\begin{tabular}{p{0.46\textwidth}lp{0.2\textwidth}}
 \toprule
 Item & Class & Script \\
 \midrule
@@ -403,7 +404,7 @@ Base cases $l=17$--$25$; Table~\ref{tab:g6} & exact finite computation & \texttt
 Tail $C_{j,r}\ge0$: $480{+}1080{+}1920$ checks & certificate & \texttt{verify\_central.py} \\
 Finite core $l\le121$ equivalence & exact finite computation & \texttt{verify\_core.py} \\
 Even-class clearance $90/90$ + bases & certificate & \texttt{verify\_clearance.py} \\
-Proposition~\ref{prop:ce} & exact finite computation & \texttt{counterexample\_6\_24.py} \\
+Proposition~\ref{prop:ce} & exact finite computation & \texttt{counterexample\_6\_\allowbreak 24.py} \\
 Uniqueness of shift $15$ & numerical evidence only & \texttt{shift\_uniqueness.py} \\
 \bottomrule
 \end{tabular}
@@ -418,28 +419,36 @@ G_{17}(t)&=G_{2}(t)=\tfrac{1}{2}\left(300t^3+195t^2+39t+2\right).
 \end{align*}
 At $t=0$: $G_{27}(0)=8=g_6(27)$ and $G_{12}(0)=8=g_6(12)$; $G_{17}(0)=1=g_6(17)=g_6(2)$. The remaining $28$ identities are produced in identical form by \texttt{verify\_shift.py}.
 
-\textbf{A cubic in the central certificates.} At $(6,8)$, class $r=40$, offset $j=3$, the comparison polynomial is $C(t)=2400t^3+420t^2-30t-1$, which has a negative value at $t=0$ but is certified nonnegative for integers $t\ge2$ by Lemma~\ref{lem:cubic} (candidates $t=2$ and the integers adjacent to the single real root of $C'$ exceeding $2$). This is the polynomial that invalidated the quadratic-only test in an earlier version of the certificate.
+\textbf{A cubic in the central certificates.} At $(6,8)$, class $r=40$, offset $j=3$, the comparison polynomial is $C(t)=2400t^3+420t^2-30t-1$, which has a negative value at $t=0$ but is certified nonnegative for integers $t\ge2$ by Lemma~\ref{lem:cubic}: the critical points of $C$ are the roots of $240t^2+28t-1$, namely $(-7\pm\sqrt{109})/120$, both below $2$, so the candidate set reduces to $\{t=2\}$ (exact check; no derivative root exceeds $2$). This is the polynomial that invalidated the quadratic-only test in an earlier version of the certificate.
 
 \textbf{Counterexample data.} $[q^{132}]F^{(6,24)}_{46}=165876$, $[q^{133}]F^{(6,24)}_{46}=165790$ (difference $-86$ at offset $j=66=h-6$), while $g_6(46)=\Delta_{24}=127$. At $l=48$: $[q^{142}]F^{(6,24)}_{48}=215262$, $[q^{143}]F^{(6,24)}_{48}=215251$ (difference $-11$ at offset $j=70=h-2$), while $g_6(48)-\Delta_{24}=14$.
 
+\section*{Acknowledgments and disclosure}
+The preparation of this manuscript and its verification package used AI assistance
+(an OpenClaw agent working under the author's direction); the human author is
+accountable for all statements. External review correspondence of 2026-11-13 is
+documented in the accompanying package (\texttt{HERMES\_REVIEW.md}). The paper has
+not undergone human peer review; machine-verified evidence classes are recorded in
+\S\ref{sec:status}.
+
 \begin{thebibliography}{99}
 \bibitem{sylvester} J.\ J.\ Sylvester, \emph{Proof of the hitherto undemonstrated fundamental theorem of invariants}, Philos.\ Mag.\ (5) \textbf{5} (1878), 178--188; reprinted in Coll.\ Math.\ Papers \textbf{3}, Chelsea, 117--126. (Contains the classical unimodality of Gaussian polynomials; citation form as in \cite{SZ,KUW}.)
-\bibitem{stanley} R.\ P.\ Stanley, \emph{Enumerative Combinatorics}, vol.\ 2, Cambridge Univ.\ Press, 1999. (Gaussian polynomials, \S 1.3--1.7.)
+\bibitem{stanley} R.\ P.\ Stanley, \emph{Enumerative Combinatorics}, vol.\ 2, Cambridge Univ.\ Press, 1999.
 \bibitem{ohara} K.\ M.\ O'Hara, \emph{Unimodality of Gaussian coefficients: a constructive proof}, J.\ Combin.\ Theory Ser.\ A \textbf{53} (1990), 29--52. DOI 10.1016/0097-3165(90)90018-r (Crossref-verified).
 \bibitem{SZ} R.\ P.\ Stanley and F.\ Zanello, \emph{A generalization of a 1998 unimodality conjecture of Reiner and Stanton}, J.\ Combinatorics \textbf{11} (2020), 111--126; preprint arXiv:1711.10033 (v2, 2018). (Crossref-verified.)
 \bibitem{KUW} C.\ Koutschan, A.\ K.\ Uncu and E.\ Wong, \emph{A Unified Approach to Unimodality of Gaussian Polynomials}, ISSAC 2023, ACM, DOI 10.1145/3597066.3597113; expanded version arXiv:2302.04067 (theorem numbers cited here refer to the arXiv version). (Crossref-verified.)
 \bibitem{RS} V.\ Reiner and D.\ Stanton, \emph{Unimodality of differences of specialized Schur functions}, J.\ Algebraic Combin.\ \textbf{7} (1998), 91--107. DOI 10.1023/A:1008623312887 (Crossref-verified).
 \bibitem{PP} I.\ Pak and G.\ Panova, \emph{Strict unimodality of $q$-binomial coefficients}, C.\ R.\ Acad.\ Sci.\ Paris \textbf{351} (2013), 415--418; corrected version arXiv:1306.5085.
-\bibitem{Bounds} I.\ Pak and G.\ Panova, \emph{Bounds on Kronecker coefficients and $q$-binomial coefficients for certain classes of polynomial sequences}, arXiv:1410.7087.
+\bibitem{Bounds} I.\ Pak and G.\ Panova, \emph{Bounds on Kronecker and $q$-binomial coefficients}, arXiv:1410.7087.
 \bibitem{Dhand} V.\ Dhand, \emph{A combinatorial proof of strict unimodality for $q$-binomial coefficients}, Discrete Math.\ \textbf{335} (2014), 20--24; arXiv:1402.1199. (Crossref-verified.)
 \bibitem{CJ} W.\ Y.\ C.\ Chen and I.\ D.\ D.\ Jia, \emph{Semi-invariants of binary forms pertaining to a unimodality theorem of Reiner and Stanton}, Internat.\ J.\ Math.\ \textbf{32} (2021), 2140003. DOI 10.1142/S0129167X21400036; arXiv:2011.01467. (Crossref-verified.)
 \bibitem{KKM} C.\ Krattenthaler, B.\ Kronholm and P.\ Marsh, \emph{An orthogonal view of Gau\ss{}ian polynomials}, arXiv:2510.14124 (v2, 2026).
-\bibitem{GY} P.\ L.\ Grace and A.\ Young, \emph{An Algebra of Invariants}, Cambridge University Press, 1903.
-\bibitem{KR} G.\ E.\ Andrews, \emph{The Theory of Partitions}, Cambridge Univ.\ Press, 1998. (Denumerants and quasipolynomials, Ch.\ 6.)
-\bibitem{M06} G.\ W.\ Hu, \emph{Unimodality of $\ggbrack{l+8}{8}-q^{4l-18}\ggbrack{12}{6}$ for all $l\ge6$}, companion preprint, 2026.
-\bibitem{M07} G.\ W.\ Hu, \emph{Certified sharp thresholds for centered Gaussian subtraction families}, companion preprint, 2026.
-\bibitem{M08} G.\ W.\ Hu, \emph{Central gaps, parity, and exceptional sets for two-rectangle subtractions}, companion preprint, 2026.
-\bibitem{M09} G.\ W.\ Hu, \emph{The Shift Law for the central gap of $\ggbrack{l+6}{6}$}, companion preprint, 2026.
+\bibitem{GY} J.\ H.\ Grace and A.\ Young, \emph{The Algebra of Invariants}, Cambridge University Press, 1903. (Author/title/year verified against library catalog records (Open Library entry for John Hilton Grace and Alfred Young, 1903; the digitized scan is held as University of Michigan Historical Math Collection record ABS4236.0001.001, not directly inspected here). The sextic generator description and Hilbert series used here are the classical formula; no specific page locator is claimed, and the series was re-checked against our exact coefficient data for $0\le l\le400$ and against \cite{KKM} Appendix A.2.)
+\bibitem{KR} G.\ E.\ Andrews, \emph{The Theory of Partitions}, Cambridge Univ.\ Press, 1998.
+\bibitem{M06} G.\ W.\ Hu, \emph{Unimodality of $\ggbrack{l+8}{8}-q^{4l-18}\ggbrack{12}{6}$ for all $l\ge6$}, unpublished companion preprint, 2026; no stable public identifier located. Not relied upon: this paper is self-contained.
+\bibitem{M07} G.\ W.\ Hu, \emph{Certified sharp thresholds for centered Gaussian subtraction families}, unpublished companion preprint, 2026; no stable public identifier located. Not relied upon: this paper is self-contained.
+\bibitem{M08} G.\ W.\ Hu, \emph{Central gaps, parity, and exceptional sets for two-rectangle subtractions}, unpublished companion preprint, 2026; cited only as the record of exploratory computations, which carry no theorem status here.
+\bibitem{M09} G.\ W.\ Hu, \emph{The Shift Law for the central gap of $\ggbrack{l+6}{6}$}, unpublished companion preprint, 2026; cited only as the record of the numerical uniqueness scan (\S\ref{sec:why15}), which is verified-not-proved.
 \end{thebibliography}
 
 \end{document}

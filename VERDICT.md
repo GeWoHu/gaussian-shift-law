@@ -1,10 +1,34 @@
-# MATH-10R — VERDICT (2026-11-13, closed T+~55 of 120 min)
+# MATH-10R — VERDICT
 
-## Mission
+## Current disposition (v1.1.1 candidate, 2026-11-13 late)
+
+- Mathematics: PROVED — unchanged by the v1.1.0/v1.1.1 cleanups; all certificates,
+  the 3,480-certificate independent tail recertification, the finite core l<=121,
+  thresholds 14/20/26, and both (k,b)=(6,24) counterexamples reproduce under the
+  hardened contracts (receipts: verification/out/RUNALL_111.out,
+  verification_independent/TAIL_RECERT_111.out, INDEPENDENT_CHECK_111.out,
+  HELPER_CONTRACTS_11.out).
+- Novelty: the Shift Law is classical (binary-sextic invariant theory; KKM Appendix A.2).
+  Novelty of the remaining equivalence/classification contributions is UNRESOLVED —
+  not certified novel. A partition-level bijection question is proposed, not shown open
+  literature-wide.
+- Review status: machine verification + one external (automated) review. NOT human peer
+  reviewed. Human specialist review of the remaining contribution and novelty is outstanding.
+- v1.1.1 scope: exposition, verifier contracts, citation integrity, and packaging cleanup
+  only — no theorem statements changed (see CHANGELOG.md).
+- Release state: v1.1.0 published; v1.1.1 is a locally verified candidate awaiting owner
+  authorization to push.
+
+---
+
+
+## Historical: original v1.0.0 close (2026-11-13, superseded below)
+
+### Mission
 Repair the MATH-10 Shift Law manuscript, independently verify its claims, adversarially
 review, and package for external human review. Verification/repair only — no new research.
 
-## Final Decision (reported independently)
+### Final Decision at v1.0.0 close (historical; novelty grade later withdrawn)
 
 **Mathematics: PROVED**
 Theorem 1 (Shift Law, odd l≥17), Theorem 2 (central-gap equivalence on (6,8),(6,12),(6,16)
@@ -70,7 +94,7 @@ Archives math06–math10 untouched (no writes; verified).
 
 ---
 
-## ADDENDUM — v1.1.0 after external review (Hermes, 2026-11-13, HERMES_REVIEW.md)
+## Historical addendum — v1.1.0 after external review (Hermes, 2026-11-13, HERMES_REVIEW.md)
 - Mathematics: PROVED — unchanged; all certificates, thresholds, exceptional sets,
   and both (6,24) counterexamples reproduced by the external reviewer independently.
 - Novelty: DOWNGRADED. The Shift Law is an immediate consequence of the classical
