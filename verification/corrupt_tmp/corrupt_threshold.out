@@ -1,0 +1,8 @@
+(A) finite base (6,8): even l=2..120 all g6>= 1: PASS
+(A) finite base (6,12): even l=6..120 all g6>= 3: PASS
+(A) finite base (6,16): even l=12..120 all g6>= 9: FAIL
+Traceback (most recent call last):
+  File "/home/gerald/.openclaw/workspace/main/projects/math-research/math10r/verification/corrupt_tmp/corrupt_threshold.py", line 78, in <module>
+    assert ok, f"finite base (6,{b})"
+           ^^
+AssertionError: finite base (6,16)

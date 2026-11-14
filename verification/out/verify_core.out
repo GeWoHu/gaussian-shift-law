@@ -1,0 +1,4 @@
+(6,8) finite core l=3..121: equivalence unimodal <=> g6(l)>=1: PASS (119 values, 0 mismatches)
+(6,12) finite core l=6..121: equivalence unimodal <=> g6(l)>=3: PASS (116 values, 0 mismatches)
+(6,16) finite core l=11..121: equivalence unimodal <=> g6(l)>=7: PASS (111 values, 0 mismatches)
+FINITE CORE: PROVED (exact coefficient-level verification, l <= 121)

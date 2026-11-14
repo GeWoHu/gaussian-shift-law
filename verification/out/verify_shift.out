@@ -1,0 +1,5 @@
+S1 Q6 period-60 quasipolynomial (recurrence + base, all n>=0): PASS
+S2 identity (*) vs independent DP, l=12..80: PASS
+S3 branch identity g(l) = g(l-15), 30/30 odd classes symbolic: PASS
+S4 base cases l=17..25: PASS
+SHIFT LAW k=6 PROVED: g_6(l) = g_6(l-15) for all odd l >= 17.

@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this work or its verification package, please cite the following entry."
+title: "A Shift Law for Central Gaps of Gaussian Binomial Coefficients"
+authors:
+  - family-names: Hu
+    given-names: Gerald W.
+type: software
+version: 1.0.0
+date-released: 2026-11-13
+repository-code: "https://github.com/GeWoHu/gaussian-shift-law"
+abstract: >-
+  Public research preprint (not peer reviewed) proving that the central gap of
+  the Gaussian binomial coefficient [l+6 choose 6]_q satisfies the shift law
+  g_6(l) = g_6(l-15) for every odd integer l >= 17, with sharp thresholds
+  l_0(6,8)=14, l_0(6,12)=20, l_0(6,16)=26, a complete zero classification, and
+  a counterexample to universal central dominance at (b,k)=(6,24). Includes a
+  complete exact-integer machine-verification package with independent
+  re-certification of all tail obligations.
+keywords:
+  - Gaussian binomial coefficients
+  - q-binomial coefficients
+  - unimodality
+  - central gap
+  - computer verification
+license: MIT
+license-manuscript: CC0-1.0

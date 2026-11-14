@@ -1,0 +1,7 @@
+(A) finite base (6,8): even l=2..120 all g6>= 1: PASS
+(A) finite base (6,12): even l=6..120 all g6>= 3: PASS
+(A) finite base (6,16): even l=12..120 all g6>= 7: PASS
+(B) (6,8) tail clearance: 30/30 even-class certificates PASS (t >= 2, l >= 122)
+(B) (6,12) tail clearance: 30/30 even-class certificates PASS (t >= 2, l >= 122)
+(B) (6,16) tail clearance: 30/30 even-class certificates PASS (t >= 2, l >= 122)
+CLEARANCE: g6(l) >= Delta_b on the even classes for b=8,12,16: PROVED (base+tail)
