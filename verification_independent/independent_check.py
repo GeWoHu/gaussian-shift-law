@@ -49,15 +49,33 @@ def main():
  for b,D,start in [(8,1,3),(12,3,6),(16,7,11)]:
   bad=[l for l in range(start,122) if core(b,l)!=(g(l)>=D)]
   print('CORE',b,'PASS' if not bad else bad,'exceptions',[l for l in range(start,40) if l%2 and g(l)<D])
+  assert not bad, ('CORE mismatch',b,bad)
  print('G6',[(l,g(l)) for l in [0,4,6,10,13,15,17,19,21,23,25]])
  for l in (17,19,21,23,25): assert g(l)==g(l-15)
  for l,j,expected,deg in [(46,66,(165876,165790),132),(48,70,(215262,215251),142)]:
   b=24; h=b*b//8; A=box(l+6,6,6*l); B=box(b,b//2,b*b//4); s=3*l-h
   got=tuple(A[deg+u]-(B[deg+u-s] if 0<=deg+u-s<len(B) else 0) for u in (0,1))
   print('PROP',l,j,got); assert got==expected
- x=S.symbols('x'); tests=[-x**3+2,-x+1,-2,(x-2)**2,(x-3)**3,x**3-2]
- for f in tests: _=S.Poly(S.diff(f,x),x).degree()
+ x=S.symbols('x')
+ def min_int_ge2(f):
+  f=S.Poly(f,x)
+  if f.degree()<0: return 0
+  if f.degree()>=1 and f.LC()<0: return None  # unbounded below: rejects 3-x
+  cands={2}
+  d1=f.diff()
+  if d1.degree()>=1:
+   for root in S.real_roots(d1):
+    fl=int(S.floor(root))
+    for cnd in (fl,fl+1):
+     if cnd>=2: cands.add(cnd)
+  return min(int(f.eval(c)) for c in cands)
+ assert min_int_ge2((x-2)**2)==0
+ assert min_int_ge2(x**2-4*x+6)==2
+ assert min_int_ge2(x**3-2)==6
+ assert min_int_ge2(-x+1) is None
+ assert min_int_ge2(-x**3+2) is None
+ assert min_int_ge2(S.Integer(-2))==-2
  r=S.RootOf(x**3-2,0); assert not bool(r>=S.Integer(3))
- print('LEMMA exact stress PASS; CRootOf comparison exact:',isinstance(r>=S.Integer(3),bool))
+ print('LEMMA minimum-routine stress PASS (6 cases incl. 3-x rejected); CRootOf gate exact')
  print('BOUNDARIES',[(b,(b*b//8+2)//3) for b in (8,12,16)])
 if __name__=='__main__': main()

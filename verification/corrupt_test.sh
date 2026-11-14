@@ -10,10 +10,17 @@ mutate() { # file sed_expr label
   local src="$1" expr="$2" label="$3"
   local dst="corrupt_tmp/$label.py"
   sed "$expr" "$src" > "$dst"
-  if $PY "$dst" > "corrupt_tmp/$label.out" 2>&1; then
+  cmp -s "$src" "$dst" && { echo "HARNESS ERROR: mutation '$label' changed nothing"; survived=1; return; }
+  $PY "$dst" > "corrupt_tmp/$label.out" 2>&1
+  local rc=$?
+  if [ $rc -ge 126 ] || [ $rc -eq 2 ]; then
+    echo "HARNESS ERROR (rc=$rc, crash not assertion): $label"; survived=1
+  elif [ $rc -eq 0 ]; then
     echo "SURVIVED (BAD): $label"; survived=1
+  elif grep -q "AssertionError" "corrupt_tmp/$label.out"; then
+    echo "DETECTED: $label (AssertionError, exit $rc)"
   else
-    echo "DETECTED: $label (exit nonzero)"
+    echo "HARNESS ERROR (rc=$rc, non-assertion failure): $label"; survived=1
   fi
 }
 PY=python3

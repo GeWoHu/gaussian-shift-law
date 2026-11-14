@@ -1,7 +1,7 @@
 # A Shift Law for Central Gaps of Gaussian Binomial Coefficients
 
 **Author:** Gerald W. Hu
-**Status:** Public research preprint — **not peer reviewed**.
+**Status:** Public research preprint — **not peer reviewed**. Revised 2026-11-13 (v1.1.0) after external review; see `HERMES_REVIEW.md`.
 **Released:** 2026-11-13
 
 ## Principal result
@@ -12,6 +12,14 @@ The paper proves:
 
 > **Shift Law.** For every odd integer `l ≥ 17`,
 > `g₆(l) = g₆(l − 15)`.
+
+This identity is a consequence of classical invariant theory: `g₆(l)` is the
+dimension of the degree-`l` component of the invariant ring of binary sextics,
+whose Hilbert series is `(1 + t¹⁵) / ((1−t²)(1−t⁴)(1−t⁶)(1−t¹⁰))` (Grace–Young
+1903); an equivalent generating function follows from Appendix A.2 of
+Krattenthaler–Kronholm–Marsh (arXiv:2510.14124). The paper's elementary
+quasipolynomial proof is a self-contained route to the same identity. The
+central contributions are the equivalence and classification results below.
 
 Consequences proved in the package:
 
@@ -70,7 +78,8 @@ sha256sum -c MANIFEST.sha256
 
 ## Layout
 
-- `paper/paper.pdf`, `paper/paper.tex` — the manuscript (14 pages).
+- `paper/paper.pdf`, `paper/paper.tex` — the manuscript (15 pages, v1.1.0).
+- `HERMES_REVIEW.md` — external review (2026-11-13) that prompted the v1.1.0 revision.
 - `verification/` — certificate scripts + expected-output receipts + corruption suite.
 - `verification_independent/` — second, independently written verifier.
 - `proofs/MECHANISM_ATTEMPT.md` — strongest partial attempt at explaining the constant 15.
@@ -86,8 +95,13 @@ sha256sum -c MANIFEST.sha256
 
 ## Caveats, stated plainly
 
-- Not peer reviewed. The audit trail here is machine verification plus an
-  adversarial internal review process, not journal refereeing.
-- Novelty is stated as *apparently new* only; no priority is asserted. See
-  `PRIORITY_LEDGER.md`.
+- Not peer reviewed. The audit trail here is machine verification plus internal
+  and one external review, not journal refereeing.
+- The Shift Law itself is **classical** (binary-sextic invariant theory; see
+  `PRIORITY_LEDGER.md`); the earlier *apparently-new* grade was withdrawn in
+  v1.1.0. Novelty of the equivalence/classification results is not established
+  either way.
+- The representation-theoretic mechanism for the constant 15 is classical
+  (multiplication by the degree-15 invariant); what remains open is a
+  partition-level bijective explanation.
 - The parity pattern for `k > 6` is **observed/conjectural**, not proved.

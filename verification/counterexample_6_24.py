@@ -31,6 +31,7 @@ for l, jbad, val in [(46, 66, -86), (48, 70, -11)]:
     s = 3*l - h
     A = gauss(l+6, 6)
     g = A[3*l] - A[3*l-1]
+    assert g >= Delta, ("premise: central inequality must pass", l, g, Delta)
     F = [A[n] - (B[n-s] if 0 <= n-s <= 2*h else 0) for n in range(6*l+1)]
     n0 = s + jbad   # margin M_j = D(s+j) = F[s+j+1] - F[s+j]
     d = F[n0+1] - F[n0]

@@ -16,14 +16,15 @@ entries carry explicit status labels.
 | Fixed-center-offset coefficient sequences are quasipolynomial (m=6,8+) | KNOWN | Krattenthaler–Kronholm–Marsh arXiv:2510.14124v2 Thms 2.2/2.3 |
 | Strict unimodality lower bounds for single Gaussian polynomials | KNOWN | Pak–Panova arXiv:1306.5085 (C.R. 2013); 1410.7087; Dhand 1402.1199 |
 | Denumerant quasipolynomiality (period lcm, valid n≥0) | KNOWN | classical; Andrews, Theory of Partitions ch. 6 |
-| Shift Law g6(l)=g6(l−15), odd l≥17 (Thm 1) | OURS — PROVED (MATH-09, consolidated MATH-10) | No equivalent statement located in Sylvester, Almkvist, O'Hara, Pak–Panova, Reiner–Stanton, Stanley–Zanello, KUW, KKM, Chen–Jia (absence-of-finding audits 2026-11-13). Novelty grade: APPARENTLY-NEW, priority established only to this date |
+| Shift Law g6(l)=g6(l−15), odd l≥17 (Thm 1) | KNOWN via classical invariant theory (revised 2026-11-13, external review) | Hilbert series of the invariant ring of binary sextics (Grace–Young 1903) is (1+t¹⁵)/∏(1−t^d), d∈{2,4,6,10}, implying the shift for odd l≥15; equivalent generating function follows from KKM arXiv:2510.14124 Appendix A.2(1)–(2). Our quasipolynomial proof is an elementary self-contained route. Earlier grade APPARENTLY-NEW withdrawn; no priority claimed |
 | Central-gap equivalence on {(6,8),(6,12),(6,16)} (Thm 2) | OURS — PROVED on stated domain | No subtraction-iff-central-gap theorem located; domain explicit because (6,24,46) refutes universal form |
 | Exact exceptional sets E(6,8/12/16) + thresholds 14/20/26 (Thm 3) | OURS — PROVED | Exact sporadic sets not located in print; KUW/SZ give eventual statements, not exact sets |
 | Certified refutation of universal central dominance (6,24,46) | OURS — PROVED (exact integer) | Not located in literature |
 | g4(l) closed form (context lemma) | OURS (proved MATH-08) | Likely derivable from Sylvester-era denumerants; form not located as stated |
 | Uniqueness of shift 15 among odd c≤45 on [c+17,129] | OURS — NUMERICAL ONLY | Explicitly labeled verified-not-proved in paper §9.1 |
 | Δ_b growth (1,3,7,24,127,802,6235) | OURS (computation) | No published formula matched |
-| Combinatorial mechanism for 15 | OPEN | naive staircase/complementation/rim-hook transports proven insufficient (MATH-09 wD + MATH-10 Phase III) |
+| Representation-theoretic mechanism for 15 | KNOWN (classical) | invariant ring of binary sextics: even generators deg 2,4,6,10 + odd generator E deg 15, relation E²=P; multiplication by E is the transport (external review 2026-11-13) |
+| Partition-level (manifestly positive) mechanism for 15 | OPEN | naive staircase/complementation/rim-hook transports insufficient; staircase subtraction valid only for strict partitions (corrected v1.1.0) |
 
 Governance: META-01 applied at synthesis (machine-checked proofs, labeled evidence
 classes); META-02 passive (no external side effects — no release, no push); META-03

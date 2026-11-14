@@ -23,7 +23,7 @@ Let $a_l(n)$ denote the number of partitions of $n$ fitting in the $l\times 6$ r
 \[
 g_6(l)=g_6(l-15)\qquad\text{for every odd } l\ge 17,
 \]
-so the anomalously small odd-parity central gaps are exactly the even-parity gaps transported by the constant shift $15=\binom{6}{2}$. The proof is a complete symbolic argument: an inclusion--exclusion identity expresses $g_6(l)$, for $l\ge 12$, as an explicit integer combination of the $\{2,3,4,5,6\}$-denumerant $Q_6$; $Q_6$ is certified to be a quasipolynomial of period $60$ valid for all $n\ge0$; and the Shift Law then reduces to $30$ explicit polynomial identities between residue-class branch polynomials, each verified exactly. Combining the Shift Law with a certified central-dominance equivalence, we obtain exact sharp unimodality classifications for the subtraction family $F^{(6,b)}_l(q)=\ggbrack{l+6}{6}-q^{3l-b^2/8}\ggbrack{b}{b/2}$ at $b\in\{8,12,16\}$: $F^{(6,b)}_l$ is unimodal if and only if $g_6(l)\ge\Delta_b$ (with $\Delta_8=1$, $\Delta_{12}=3$, $\Delta_{16}=7$), and the exceptional sets are exactly $\{3,5,7,9,11,13\}$, $\{7,9,\dots,19\}$, and $\{11,13,\dots,25\}$ (odd $l$), with sharp thresholds $l_0=14,20,26$. The equivalence is false in general: we exhibit the certified counterexample $(k,b,l)=(6,24,46)$, where the central inequality passes with equality and an interior adjacent difference fails. No combinatorial mechanism for the constant $15$ is known; we document precisely why the standard staircase, complementation, and rim-hook transports do not supply one, and state a precise open problem. All infinite computer-assisted content is reduced to explicit finite certificates in exact integer arithmetic; the accompanying scripts reproduce every decisive identity, and deliberate certificate corruption is detected.
+so the anomalously small odd-parity central gaps are exactly the even-parity gaps transported by the constant shift $15=\binom{6}{2}$. The proof is a complete symbolic argument: an inclusion--exclusion identity expresses $g_6(l)$, for $l\ge 12$, as an explicit integer combination of the $\{2,3,4,5,6\}$-denumerant $Q_6$; $Q_6$ is certified to be a quasipolynomial of period $60$ valid for all $n\ge0$; and the Shift Law then reduces to $30$ explicit polynomial identities between residue-class branch polynomials, each verified exactly. Combining the Shift Law with a certified central-dominance equivalence, we obtain exact sharp unimodality classifications for the subtraction family $F^{(6,b)}_l(q)=\ggbrack{l+6}{6}-q^{3l-b^2/8}\ggbrack{b}{b/2}$ at $b\in\{8,12,16\}$: $F^{(6,b)}_l$ is unimodal if and only if $g_6(l)\ge\Delta_b$ (with $\Delta_8=1$, $\Delta_{12}=3$, $\Delta_{16}=7$), and the exceptional sets are exactly $\{3,5,7,9,11,13\}$, $\{7,9,\dots,19\}$, and $\{11,13,\dots,25\}$ (odd $l$), with sharp thresholds $l_0=14,20,26$. The equivalence is false in general: we exhibit the certified counterexample $(k,b,l)=(6,24,46)$, where the central inequality passes with equality and an interior adjacent difference fails. The constant $15$ is the degree of the odd generator of the classical invariant ring of binary sextics, whose Hilbert series makes the shift immediate; what remains open is a partition-level bijective explanation, and we document precisely why the standard staircase, complementation, and rim-hook transports do not supply one. All infinite computer-assisted content is reduced to explicit finite certificates in exact integer arithmetic; the accompanying scripts reproduce every decisive identity, and deliberate certificate corruption is detected.
 \end{abstract}
 
 \section{Introduction}
@@ -65,7 +65,7 @@ The proof technique is quasipolynomial: the coefficients of $\ggbrack{l+6}{6}$ a
 Following the epistemology of \cite{KUW}, we label in \S\ref{sec:status} exactly which statements are hand proofs, which are machine-verified certificates over explicit finite data, and which are numerically supported but unproved. No numerical observation is promoted to a theorem anywhere in this paper.
 
 \subsection*{Relation to prior work}
-The quasipolynomial method with a positivity certificate is standard technology \cite{KUW,KKM}; the reduction of unimodality of $F^{(k,b)}_l$ to finitely many fixed adjacent-offset inequalities is implicit in \cite{RS} and explicit in the companion papers \cite{M06,M07}. The Shift Law itself, the central-gap equivalence over an explicit certified domain, and the exact exceptional-set classifications appear to be new; we found no equivalent statement in the primary literature checked (\S\ref{sec:related}), and we make no stronger novelty claim than ``not found in the sources cited.'' A combinatorial explanation of the constant $15$ is open (\S\ref{sec:why15}).
+The quasipolynomial method with a positivity certificate is standard technology \cite{KUW,KKM}; the reduction of unimodality of $F^{(k,b)}_l$ to finitely many fixed adjacent-offset inequalities is implicit in \cite{RS} and explicit in the companion papers \cite{M06,M07}. The Shift Law is equivalent to the classical Hilbert series of the invariant ring of binary sextics and follows from Appendix A.2 of \cite{KKM} (identified in external review, 2026-11-13; \S\ref{sec:related}); our residue-class enumeration gives a self-contained elementary proof of the same identity. The contributions of this paper are the central-gap equivalence over an explicit certified domain, the exact exceptional-set classifications with sharp thresholds, and the certified failure at $(6,24)$; we make no stronger novelty claim for these than ``not found in the sources cited.'' A partition-level explanation of the constant $15$ is open (\S\ref{sec:why15}).
 
 \section{Setup, definitions, and statements}\label{sec:setup}
 Throughout, $l,k,b$ are integers. For $n\ge k\ge 0$,
@@ -101,7 +101,7 @@ For every odd integer $l\ge 17$,
 \[
 g_6(l)\;=\;g_6(l-15).
 \]
-The statement is one-directional: in general $g_6(l)\ne g_6(l+15)$ on even $l$ (for instance $g_6(24)=29\ne 0=g_6(9)$), and there is no period-$15$ symmetry.
+The statement is one-directional. For even $l\ge2$ the theorem applied to the odd parameter $l+15$ gives $g_6(l+15)=g_6(l)$ (e.g.\ $g_6(24)=g_6(39)=29$), whereas the reverse comparison $g_6(l)=g_6(l-15)$ fails in general on even $l$ ($g_6(24)=29\ne 0=g_6(9)$); there is no period-$15$ symmetry.
 \end{theorem}
 
 \begin{theorem}[Central-gap equivalence]\label{thm:equivalence}
@@ -226,7 +226,7 @@ From $\ggbrack{l+6}{6}=\prod_{i=1}^6(1-q^{l+i})\big/\prod_{i=1}^6(1-q^i)$, expan
 a_l(n)=\sum_{S\subseteq\{1,\dots,6\}}(-1)^{|S|}\,p\bigl(n-|S|\,l-\sigma(S)\bigr),
 \qquad \sigma(S)=\sum_{i\in S}i .
 \]
-Apply this at $n=3l$ and $n=3l-1$ and subtract. For $|S|\ge3$ the arguments are $(3-|S|)l-\sigma(S)$ and $(3-|S|)l-\sigma(S)-1$, both negative (at $|S|=3$ the largest is $-6$ for $l=12$, since $\sigma(S)\ge6$), so all subsets of size $\ge3$ contribute to neither difference. For $|S|=2$ the arguments are $l-i-j$ and $l-i-j-1$; and $|S|=1$ gives $2l-i$, $2l-i-1$; all are $\ge 0$ for $l\ge 12$ except possibly the $-1$ variants of pairs at $l=12$ with $i+j=11$, which contribute $p(-1)-p(-2)=0$ and cancel correctly. Subtracting the two identities and using $Q_6(m)=p(m+1)-p(m)$ (which follows from $(1-q)\prod_{i=1}^6(1-q^i)^{-1}=\prod_{i=2}^6(1-q^i)^{-1}$) yields \eqref{eq:star}.
+Apply this at $n=3l$ and $n=3l-1$ and subtract. For $|S|\ge3$ the arguments are $(3-|S|)l-\sigma(S)$ and $(3-|S|)l-\sigma(S)-1$, both negative (at $|S|=3$ the largest is $-6$ for $l=12$, since $\sigma(S)\ge6$), so all subsets of size $\ge3$ contribute to neither difference. For $|S|=2$ the arguments are $l-i-j$ and $l-i-j-1$; and $|S|=1$ gives $2l-i$, $2l-i-1$; all are $\ge 0$ for $l\ge 12$ except possibly the $-1$ variants of pairs at $l=12$ with $i+j=11$, which contribute $p(-1)-p(-2)=0$ and cancel correctly. Subtracting the two identities and using $Q_6(m)=p(m)-p(m-1)$ (which follows from $(1-q)\prod_{i=1}^6(1-q^i)^{-1}=\prod_{i=2}^6(1-q^i)^{-1}$) yields \eqref{eq:star}.
 \end{proof}
 
 \begin{remark}
@@ -293,7 +293,7 @@ and the comparison polynomial
 \[
 C_{j,r}(t)\;:=\;M_{j,r}(t)-M_{h-1,r}(t)
 \]
-has degree $\le 3$: the branch polynomials are constructed symbolically and the certificate reports the observed maximum degree $3$ across all $3360$ comparison polynomials (the a-priori bound from Lemma~\ref{lem:qp-classical} is $4$; the drop is empirical structure, and Lemma~\ref{lem:cubic} is stated for degree $\le3$ so the certificate consumes exactly what is produced). The certificate verifies, for every family, every $r\bmod60$, and every $j\in\{-1,\dots,h-2\}$, that $C_{j,r}$ passes Lemma~\ref{lem:cubic} at $T_0=2$:
+has degree $\le 3$: the branch polynomials are constructed symbolically and the certificate reports the observed maximum degree $3$ across all $3480$ comparison polynomials (the a-priori bound from Lemma~\ref{lem:qp-classical} is $4$; the drop is empirical structure, and Lemma~\ref{lem:cubic} is stated for degree $\le3$ so the certificate consumes exactly what is produced). The certificate verifies, for every family, every $r\bmod60$, and every $j\in\{-1,\dots,h-2\}$, that $C_{j,r}$ passes Lemma~\ref{lem:cubic} at $T_0=2$:
 \[
 \text{(6,8): } 480/480,\qquad \text{(6,12): } 1080/1080,\qquad \text{(6,16): } 1920/1920 \text{ checks pass.}
 \]
@@ -349,14 +349,20 @@ Across the even-$k$ families examined in \cite{M08}, the central gap of $\ggbrac
 
 \subsection{Why naive bijections fail}\label{sec:naive}
 \begin{enumerate}
-\item \textbf{Staircase subtraction.} $\delta=(5,4,3,2,1,0)$ gives an exact weight-shift-by-$15$ bijection from partitions with \emph{exactly} $6$ positive parts in the $l\times6$ box to those in the $(l-5)\times6$ box. It captures only the exact-$6$-row summand of $a_l(3l)$; partitions with fewer than $6$ parts are unpaired, and no sign-reversing pairing of the boundary layer was found. (Note also $l\mapsto l-5$, not $l-15$: the weight shift is $15$ but the width shift is $5$.)
+\item \textbf{Staircase subtraction.} $\delta=(5,4,3,2,1,0)$ gives an exact weight-shift-by-$15$ bijection from \emph{strict} partitions into $6$ positive parts in the $l\times6$ box to partitions in the $(l-5)\times6$ box; for an arbitrary six-part partition the subtraction $\lambda\mapsto\lambda-\delta$ need not be a partition at all (consecutive parts may repeat), so it does not cover the exact-$6$-row summand. It captures only the exact-$6$-row summand of $a_l(3l)$; partitions with fewer than $6$ parts are unpaired, and no sign-reversing pairing of the boundary layer was found. (Note also $l\mapsto l-5$, not $l-15$: the weight shift is $15$ but the width shift is $5$.)
 \item \textbf{Complementation} $\lambda\mapsto(6l-|\lambda|)$ fixes the central weight and does not transport the width at all.
 \item \textbf{2-core / rim-hook transports} meet runner boundaries imposed by the box: a $15$-rim hook is not available on every relevant diagram, and the core effect depends on its position.
 \item Any bijective proof must be \emph{directional} (\S\ref{sec:why15}), which rules out any ordinary involution or period-$15$ symmetry argument.
 \end{enumerate}
 
-\begin{conjecture}[Mechanism; open]\label{conj:mechanism}
-There is a representation-theoretic or bijective explanation of the identity $G_r\equiv G_{r-15}$ --- e.g.\ an identity of specialized characters or a signed transport pairing the boundary layers of $a_l(3l)-a_l(3l-1)$ --- that does not proceed by residue-class enumeration. No such explanation is known; see \texttt{proofs/MECHANISM\_ATTEMPT.md} in the accompanying package for the strongest partial attempt found so far.
+As observed in external review (2026-11-13), the \emph{representation-theoretic} mechanism is classical: $g_6(l)$ is the dimension of the degree-$l$ component of the invariant ring of binary sextics, which is generated by invariants of degrees $2,4,6,10$ together with one odd generator $E$ of degree $15$ subject to a single quadratic relation $E^2=P(S,T,H,I)$ \cite{GY}; the Hilbert series is
+\[
+\sum_{l\ge0} g_6(l)\,t^l=\frac{1+t^{15}}{(1-t^2)(1-t^4)(1-t^6)(1-t^{10})},
+\]
+and multiplication by $E$ identifies the even degree-$(l-15)$ component with the odd degree-$l$ component. The same generating function follows from Appendix A.2(1)--(2) of \cite{KKM}. This is precisely the residue-free explanation of the constant $15$; our quasipolynomial proof is an elementary self-contained route to the same identity.
+
+\begin{conjecture}[Partition-level mechanism; open]\label{conj:mechanism}
+There is a \emph{manifestly positive combinatorial} explanation of the identity $G_r\equiv G_{r-15}$ --- e.g.\ a signed transport pairing the boundary layers of $a_l(3l)-a_l(3l-1)$, or an explicit expansion of the relation $E^2=P(S,T,H,I)$ into partition moves --- that does not proceed by residue-class enumeration. The classical invariant-theoretic identification above is representation-theoretic, not a partition bijection; see \texttt{proofs/MECHANISM\_ATTEMPT.md} in the accompanying package for the strongest partial attempt found so far.
 \end{conjecture}
 
 \section{Related work and novelty position}\label{sec:related}
@@ -366,7 +372,9 @@ There is a representation-theoretic or bijective explanation of the identity $G_
 
 \textbf{Reiner--Stanton \cite{RS}.} Their Theorem 5 gives two-step propagation in the width for fixed subtractands, which reduces each parity tail of our classification to finitely many consecutive base cases once unimodality (not the gap equivalence) is the target. Our equivalence theorem is a different statement: it identifies the failure mode with a single central inequality \emph{and its exact domain of validity}, including the certified failure at $(6,24)$.
 
-\textbf{Krattenthaler--Kronholm--Marsh \cite{KKM}.} Theorems 2.2/2.3 of \cite{KKM} give rational generating functions for fixed-center-offset coefficient sequences of $\ggbrack{N+m}{m}$, which independently justify the quasipolynomial structure used in \S\S\ref{sec:qp}--\ref{sec:cubic} for the $m=6$ case; our floor-bookkeeping certificate is self-contained.
+\textbf{Krattenthaler--Kronholm--Marsh \cite{KKM}.} Theorems 2.2/2.3 of \cite{KKM} give rational generating functions for fixed-center-offset coefficient sequences of $\ggbrack{N+m}{m}$, which independently justify the quasipolynomial structure used in \S\S\ref{sec:qp}--\ref{sec:cubic} for the $m=6$ case; our floor-bookkeeping certificate is self-contained. More strongly, Appendix A.2(1)--(2) of \cite{KKM} yields, for the $m=6$ central-offset sequence, a generating function equivalent to $(1+t^{15})\big/\prod(1-t^{d})$, $d\in\{2,4,6,10\}$, which implies Theorem~\ref{thm:shift} directly; this connection was made explicit by external review (2026-11-13) and is the reason the novelty statement in \S\ref{sec:intro} is scoped to the equivalence and classification results in \S\ref{sec:setup}.
+
+\textbf{Classical invariant theory \cite{GY}.} The invariant ring of binary sextics is generated by invariants of degrees $2,4,6,10,15$ with a single relation of degree $30$; its Hilbert series is $(1+t^{15})/((1-t^2)(1-t^4)(1-t^6)(1-t^{10}))$, and since $g_6(l)$ is the dimension of the degree-$l$ invariant component (equivalently, the middle adjacent-coefficient difference of $\ggbrack{l+6}{6}$), the Shift Law for odd $l\ge15$ is immediate. Multiplication by the degree-$15$ generator is the mechanism. This classical identification, brought out by external review (2026-11-13), supersedes the earlier ``no mechanism known'' phrasing.
 
 \textbf{Strict unimodality.} \cite{PP,Bounds,Dhand} lower-bound central gaps of a single Gaussian polynomial (gaps growing with the parameters); our $g_6$ is exactly such a gap, and the Shift Law says the odd-parity subsequence of this gap function is a translate of the even one --- a statement not of the strict-unimodality form.
 
@@ -377,8 +385,8 @@ There is a representation-theoretic or bijective explanation of the identity $G_
 \item The equivalence theorem holds, as proved, exactly on $\{(6,8),(6,12),(6,16)\}\times\{$admissible $l\}$. It is false for $b=24$ (Proposition~\ref{prop:ce}); the correct general formulation should include a curvature condition comparing the ascent profiles of the two rectangles. Extending the certificates to $(6,20)$ or $(6,24)$ with a window lemma is mechanical but not done.
 \item For $k>6$ no analogue of the Shift Law is proved; at $k=8,10$ the corresponding shift candidates fail numerically \cite{M08}, and the general statement (if any) should involve $\binom k2$ and the slow parity class $kl\equiv2\pmod4$.
 \item Uniqueness of the shift $15$ is verified numerically (\S\ref{sec:why15}), not proved.
-\item The mechanism problem (Conjecture~\ref{conj:mechanism}) is open; the identity is proved by residue-class enumeration and no conceptual explanation is known.
-\item The growth of $\Delta_b$ ($1,3,7,24,127,\dots$) has no closed form; super-exponential growth is observed but unproved.
+\item The partition-level mechanism problem (Conjecture~\ref{conj:mechanism}) is open. The representation-theoretic explanation --- the invariant ring of binary sextics and multiplication by its degree-$15$ generator --- is classical (\S\ref{sec:why15}, \cite{GY,KKM}); what is missing is a manifestly positive combinatorial transport at the partition level.
+\item The growth of $\Delta_b$ ($1,3,7,24,127,\dots$) has no closed form. It is at most exponential since $\Delta_b\le\binom{b}{b/2}\le 2^b$; the data are consistent with growth whose base approaches $2$, unproved.
 \end{enumerate}
 
 \section{Evidence classes and reproducibility}\label{sec:status}
@@ -426,6 +434,7 @@ At $t=0$: $G_{27}(0)=8=g_6(27)$ and $G_{12}(0)=8=g_6(12)$; $G_{17}(0)=1=g_6(17)=
 \bibitem{Dhand} V.\ Dhand, \emph{A combinatorial proof of strict unimodality for $q$-binomial coefficients}, Discrete Math.\ \textbf{335} (2014), 20--24; arXiv:1402.1199. (Crossref-verified.)
 \bibitem{CJ} W.\ Y.\ C.\ Chen and I.\ D.\ D.\ Jia, \emph{Semi-invariants of binary forms pertaining to a unimodality theorem of Reiner and Stanton}, Internat.\ J.\ Math.\ \textbf{32} (2021), 2140003. DOI 10.1142/S0129167X21400036; arXiv:2011.01467. (Crossref-verified.)
 \bibitem{KKM} C.\ Krattenthaler, B.\ Kronholm and P.\ Marsh, \emph{An orthogonal view of Gau\ss{}ian polynomials}, arXiv:2510.14124 (v2, 2026).
+\bibitem{GY} P.\ L.\ Grace and A.\ Young, \emph{An Algebra of Invariants}, Cambridge University Press, 1903.
 \bibitem{KR} G.\ E.\ Andrews, \emph{The Theory of Partitions}, Cambridge Univ.\ Press, 1998. (Denumerants and quasipolynomials, Ch.\ 6.)
 \bibitem{M06} G.\ W.\ Hu, \emph{Unimodality of $\ggbrack{l+8}{8}-q^{4l-18}\ggbrack{12}{6}$ for all $l\ge6$}, companion preprint, 2026.
 \bibitem{M07} G.\ W.\ Hu, \emph{Certified sharp thresholds for centered Gaussian subtraction families}, companion preprint, 2026.

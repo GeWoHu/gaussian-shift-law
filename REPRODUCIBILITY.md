@@ -51,3 +51,15 @@ from the extraction (see VERDICT.md §Packaging for the observed PASS output).
 ## Hashes
 MANIFEST.sha256 covers every package file (sha256sum -c verified before zipping; the
 manifest itself is included in the zip after verification).
+
+## v1.1.0 (2026-11-13, post-external-review)
+Verifier contracts strengthened: `verify_central.py` rejects negative-leading
+linear polynomials in `nonneg()`; `independent_check.py` now exits nonzero on any
+finite-core mismatch and its lemma stress test calls a real minimum routine
+(6 cases, including rejection of `3-x`); `corrupt_test.sh` accepts only
+`AssertionError` failures as detection and flags harness crashes (rc >= 126,
+syntax errors, unchanged mutants); `counterexample_6_24.py` asserts its premise
+(`g6 >= Delta` at each counterexample). Commands unchanged. v1.1.0 receipts:
+`verification/out/RUNALL_11.out`, `verification/out/CORRUPT_11.out`,
+`verification_independent/INDEPENDENT_CHECK_11.out`,
+`verification_independent/TAIL_RECERT_11.out`.

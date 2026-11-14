@@ -1,0 +1,29 @@
+=== g6_table ===
+g6(l)  :    1    2    3    4    6    8   10    1    1    2    3    4    6    8
+zero classification (finite l<=13): g6(l)=0 iff l odd, 1<=l<=13: PASS
+--- g6_table: exit=0 runtime=0s
+=== counterexample_6_24 ===
+(6,24) l=48: g6=141, g6-Delta=14, margin M_70 = F[143]-F[142] = 215251-215262 = -11; F NOT unimodal -> central dominance fails
+COUNTEREXAMPLE (6,24,46)/(6,24,48): CONFIRMED (exact integers)
+--- counterexample_6_24: exit=0 runtime=0s
+=== verify_core ===
+(6,16) finite core l=11..121: equivalence unimodal <=> g6(l)>=7: PASS (111 values, 0 mismatches)
+FINITE CORE: PROVED (exact coefficient-level verification, l <= 121)
+--- verify_core: exit=0 runtime=1s
+=== verify_shift ===
+S4 base cases l=17..25: PASS
+SHIFT LAW k=6 PROVED: g_6(l) = g_6(l-15) for all odd l >= 17.
+--- verify_shift: exit=0 runtime=3s
+=== verify_clearance ===
+(B) (6,16) tail clearance: 30/30 even-class certificates PASS (t >= 2, l >= 122)
+CLEARANCE: g6(l) >= Delta_b on the even classes for b=8,12,16: PROVED (base+tail)
+--- verify_clearance: exit=0 runtime=3s
+=== verify_central ===
+(6,12) MINIMUM-BASED tail certificates: 1080/1080 PASS (h=18, Delta=3, maxdeg=3)
+(6,16) MINIMUM-BASED tail certificates: 1920/1920 PASS (h=32, Delta=7, maxdeg=3)
+--- verify_central: exit=0 runtime=106s
+=== shift_uniqueness ===
+odd shifts c passing on window [c+17,129]: [15]
+NUMERICAL: only c=15 survives (verified, not proved)
+--- shift_uniqueness: exit=0 runtime=0s
+SUITE OVERALL: PASS

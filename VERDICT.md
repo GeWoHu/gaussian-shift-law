@@ -67,3 +67,24 @@ REFEREE_REPORT.md (+ editor's note), REPAIR_LOG.md, PRIORITY_LEDGER.md, REPRODUC
 VERDICT.md, CHECKPOINT.json, EXTRACTION_TEST.out, MANIFEST.sha256, math10r-verification.zip.
 Clean-extraction reproduction receipt: EXTRACTION_TEST.out (all exit 0).
 Archives math06–math10 untouched (no writes; verified).
+
+---
+
+## ADDENDUM — v1.1.0 after external review (Hermes, 2026-11-13, HERMES_REVIEW.md)
+- Mathematics: PROVED — unchanged; all certificates, thresholds, exceptional sets,
+  and both (6,24) counterexamples reproduced by the external reviewer independently.
+- Novelty: DOWNGRADED. The Shift Law is an immediate consequence of the classical
+  Hilbert series of the binary-sextic invariant ring and follows from KKM
+  Appendix A.2(1)-(2) (a source already in the bibliography). The earlier
+  APPARENTLY-NEW grade is withdrawn. Remaining claimed contributions: the
+  central-gap equivalence over the certified domain, the exact exceptional-set
+  classifications with sharp thresholds, and the certified (6,24) failure —
+  novelty of these was not established either way.
+- Mechanism: the representation-theoretic mechanism is classical (degree-15 odd
+  generator E; multiplication by E). The open problem is restated at the
+  partition level only.
+- The internal blanket "all resolved / APPROVED" referee verdict was too strong:
+  five textual errors and four verifier-contract weaknesses (none overturning a
+  result) had been missed; all repaired in v1.1.0 and re-verified.
+- Publication readiness: READY-FOR-HUMAN-SPECIALIST-REVIEW (supersedes
+  READY-FOR-HUMAN-REVIEW wording of v1.0.0).

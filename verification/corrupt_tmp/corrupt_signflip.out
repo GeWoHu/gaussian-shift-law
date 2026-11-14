@@ -3,7 +3,7 @@ FAIL 8 0 0 -2100*t**3 - 255*t**2 + 31*t + 2
 FAIL 8 0 1 -1800*t**3 - 315*t**2 + 2*t + 1
 (6,8) MINIMUM-BASED tail certificates: 0/480 PASS (h=8, Delta=1, maxdeg=3)
 Traceback (most recent call last):
-  File "verification/corrupt_tmp/corrupt_signflip.py", line 93, in <module>
+  File "verification/corrupt_tmp/corrupt_signflip.py", line 92, in <module>
     assert fails == 0
            ^^^^^^^^^^
 AssertionError

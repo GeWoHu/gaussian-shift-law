@@ -48,8 +48,7 @@ def nonneg(Dj):
     if deg < 0: return True
     if deg == 0: return p.LC() >= 0
     lc = p.LC()
-    if deg >= 3 and lc < 0: return False  # unbounded below
-    if deg == 2 and lc < 0: return False
+    if deg >= 1 and lc < 0: return False  # unbounded below (catches 3-t)
     cands = {T0}
     d1 = sp.Poly(sp.diff(Dj, t), t)
     if d1.degree() >= 1:
