@@ -1,10 +1,10 @@
 S1 Q6 period-60 quasipolynomial (recurrence + base, all n>=0): PASS
 S2 identity (*) vs independent DP, l=12..80: PASS
 Traceback (most recent call last):
-  File "/home/gerald/.openclaw/workspace/main/projects/math-research/math10r/verification/corrupt_tmp/corrupt_shift.py", line 87, in <module>
+  File "verification/corrupt_tmp/corrupt_shift.py", line 87, in <module>
     main()
     ~~~~^^
-  File "/home/gerald/.openclaw/workspace/main/projects/math-research/math10r/verification/corrupt_tmp/corrupt_shift.py", line 78, in main
+  File "verification/corrupt_tmp/corrupt_shift.py", line 78, in main
     assert sp.simplify(Gsym(r) - Gsym(r-13)) == 0, f"S3 class {r}"
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: S3 class 1

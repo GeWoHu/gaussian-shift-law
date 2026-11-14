@@ -1,8 +1,8 @@
 Traceback (most recent call last):
-  File "/home/gerald/.openclaw/workspace/main/projects/math-research/math10r/verification/corrupt_tmp/corrupt_base.py", line 88, in <module>
+  File "verification/corrupt_tmp/corrupt_base.py", line 88, in <module>
     main()
     ~~~~^^
-  File "/home/gerald/.openclaw/workspace/main/projects/math-research/math10r/verification/corrupt_tmp/corrupt_base.py", line 58, in main
+  File "verification/corrupt_tmp/corrupt_base.py", line 58, in main
     assert all(qp[n % 60].subs(t, n // 60) == Q6[n] for n in range(120)), "S1 base"
            ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: S1 base
